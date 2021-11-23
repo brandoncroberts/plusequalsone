@@ -1,0 +1,28 @@
+{
+  "root": "apps/nextmove-e2e",
+  "sourceRoot": "apps/nextmove-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/nextmove-e2e/cypress.json",
+        "devServerTarget": "nextmove:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "nextmove:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nextmove-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["nextmove"]
+}
